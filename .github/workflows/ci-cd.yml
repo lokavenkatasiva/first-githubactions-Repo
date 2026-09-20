@@ -1,1 +1,25 @@
+name: Java CI
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Check Java version
+        run: java -version
+
+      - name: Check Maven version
+        run: mvn -version
+
+      - name: Build application
+        run: mvn clean package
